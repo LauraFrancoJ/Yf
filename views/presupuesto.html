@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilosPresupForm.css">
+    <title>Presupuesto YF</title>
+</head>
+<body>
+<!-- Aquí va un formulario de presupuesto pero que validará con js -->
+<!--  Una página de presupuesto (3 puntos), que se llamará: presupuesto.html.
+Esta página deberá contener un formulario que se divida en dos partes:-->
+    <header>
+      
+            <nav>   
+                <a href="../index.html"> <img id="logo" src="../assets/images/francamente-logo-red.png" alt="logo-yf" width="473" height="557"></a>
+                  <h1 class="yfH1"> Yf</h1>            
+                <!-- este es un menú básico que debe ir fijo y moverse según hacemos scroll. En pantalla de ordenador 
+                debe ir horizontal y en tablet y móvil hacerse responsive y vertical -->
+                <ul class="menuNav">
+                    
+                    <li><a href="../index.html" target="_blank" >INICIO</a></li>
+                    <li><a href="./productos.html">PRODUCTOS</a></li>
+                    <li><a href="./presupuesto.html" class="on">PRESUPUESTO</a></li>
+                    <li><a href="./contacto.html">CONTACTO</a></li>
+                </ul>
+                
+            </nav>
+    </header>
+    <main id="mainPresupuesto">
+        <h2>Presupuesto pedido  </h2>
+        <form action="#" method="post" id="formulario" novalidate >
+        <section id="datosPersonales">
+            <!-- o Datos de contacto (1 punto): En esta primera parte del formulario
+se solicitarán los datos de contacto del usuario. Los datos de contacto se deberán validar utilizando JavaScript, para que cumplan
+con los siguientes criterios:
+- Nombre: Sólo podrá contener letras y tendrá una longitud
+máxima de 15 caracteres.
+- Apellidos: Sólo podrá contener letras y tendrá una longitud máxima de 40 caracteres.
+- Teléfono de contacto: Sólo podrá contener números y
+tendrá una longitud máxima de 9 dígitos.
+- Correo electrónico: Deberá cumplir con los estándares de
+un correo electrónico. Ejemplo: nnnnn_nnn@zzzzz.xxx -->
+            <h3 class="presup" id="formDatosPersonales">Datos personales</h3>
+            <div id="inputPersonales">
+                <div>
+                    <label for="nombreF">Nombre</label><input type="text" id="nombreF"> <p class="errorMessage"></p>
+                </div>    
+                <div>
+                    <label for="apellidosF">Apellidos</label><input type="text" id="apellidosF"><p class="errorMessage"></p>
+
+                </div>
+                <div>
+                    <label for="emailF">Email</label><input type="text" id="emailF"><p class="errorMessage"></p>
+                </div>  
+                <div>
+                    <label for="telefonoF">Teléfono</label><input type="text" id="telefonoF"><p class="errorMessage"></p>
+                </div>
+            </div>
+        </section>
+        <section id="datosPresupuesto">
+            <!-- Presupuesto (2 puntos): En esta segunda parte del formulario se
+solicitará al usuario que elija entre varias opciones para calcular
+un presupuesto. Las opciones deberán ser:
+Producto: Deberás utilizar las etiquetas HTML pertinentes
+que permitan al usuario elegir entre varias opciones. Cada
+opción llevará un precio asociado. Deberás poner un mínimo de tres opciones.
+ -->
+            <h3 class="presup">Datos pedido</h3>
+            <div>
+                <h4 class="presup">Productos</h4>
+                <p>Recuerda que cada uno de nuestros productos es único al tratarse de objetos hechos a mano con amor, por eso puede que un producto no sea exactamente igual al de la foto o que si has pedido 2 unidades no sean idénticas</p>
+                <!-- producto. 3 opciones mínimo -->
+                <div id="productDiv">
+                    <span class="errorGapGeneral"></span> <!-- mensaje general de error tras recorrer todos loa selects con un bucle-->
+                    
+                    <div class="prods">
+                        <div id="pr1">
+                            <img src="../assets/images/botijo-pequeno.jpg" alt="" width="100" height="100">
+                            <select name="pr" id="pr1Select">
+                                <option value="">Seleccione una opción</option>
+                                <option value="botijo pequeño : 25">1</option>
+                                <option value=" 2 botijos mini: 45">2</option>
+                                <option value="3 botijos mini: 60">3</option>
+                            </select><button class="anadirProducto">Añadir producto</button>
+                            <span>Botijo pequeño- 25 euros</span>
+                        </div>    
+                    </div>
+                    <div class="prods">
+                        <div id="pr2">
+                            <img src="../assets/images/mini-botijo-718-524.jpg" alt="botijo" width="100" height="100">
+                            
+                            <select name="pr" id="pr2Select">
+                                <option value="">Seleccione una opción</option>
+                                <option value="botijo mini: 15">1</option>
+                                <option value=" 2 botijos mini: 30">2</option>
+                                <option value="3 botijos mini: 40">3</option>
+                            </select><button class="anadirProducto">Añadir producto</button>
+                            <span>Botijo mini- 15 euros</span>
+                        </div>
+                    </div>
+                    <div class="prods">
+                        <div id="pr3">
+                            <img src="../assets/images/tetera-japonesa.jpg" alt="Tetera" width="100" height="100">
+                            <select name="pr" id="pr3Select">
+                                <option value="">Seleccione una opción</option>
+                                <option value="tetera: 35">1</option>
+                                <option value="2 teteras: 70">2</option>
+                                <option value="3 tetetas: 95">3</option>
+                            </select><button class="anadirProducto">Añadir producto</button>
+                            <span>Tetera - 35 euros</span>
+                        </div>
+                    </div>
+                    <div class="prods">
+                        <div id="pr4">
+                        <img src="../assets/images/florero-vasija-new-old.jpg" alt="florero" width="100" height="100">
+                        <select name="pr" id="pr4Select">
+                                <option value="">Seleccione una opción</option>
+                                <option value="florero: 20">1</option>
+                                <option value="2 floreros: 35">2</option>
+                                <option value="3 floreros: 55">3</option>
+                            </select><button class="anadirProducto">Añadir producto</button>
+                            <span>Florero- 20 euros</span>
+                        </div>
+                    </div>
+                    <div class="prods">
+                        <div id="pr6">
+                        <img src="../assets/images/taza-584-537.jpg" alt="taza" width="584" height="537">
+                        <select name="pr" id="pr6Select">
+                                <option value="">Seleccione una opción</option>
+                                <option value=" 1 taza: 15">1</option>
+                                <option value=" 2 tazas: 30">2</option>
+                                <option value=" 3 tazas: 40">3</option>
+                            </select><button class="anadirProducto">Añadir producto</button>
+                            <span>Taza- 15 euros</span>
+                        </div>
+                    </div>
+                    <div class="prods">
+                        <div id="pr7">
+                        <img src="../assets/images/platos_537_577.jpg" alt="platos" width="537" height="577">
+                        <select name="pr" id="pr7Select">
+                                <option value="">Seleccione una opción</option>
+                                <option value=" 1 set individual vajilla: 25">1</option>
+                                <option value=" 2 sets individual vajilla: 45">2</option>
+                                <option value="3 sets individual vajilla: 70">3</option>
+                            </select><button class="anadirProducto">Añadir producto</button>
+                            <span>Set individual vajilla 25 euros</span>
+                        </div>
+                    </div>
+                
+            </div>
+         
+            <div id="plazo">
+                <h4 class="presup">Tiempos de entrega</h4>
+                <p> Algunos artículos pueden tardar más si no tenemos stock y hacerlos lleva un tiempo, que el propio material nos impone.
+                    Para poder atenderte lo mejor posible tenemos diferentes opciones de entrega
+                </p>
+<!-- Plazo: Deberás utilizar una etiqueta HTML (input numérico)
+que permita al usuario indicar el número de meses o días
+en los que desea recibir el producto. Según el valor introducido se le aplicará un 
+descuento sobre el presupuesto final. -->
+                <span class="errorMessage"></span>
+                <label for="plazoTiempo">Elige el tiempo de entrega (días)</label>
+                <input  id="plazoTiempo" type="number" class="plazo" min="10" step="10" max="30" value="0">
+            </div>
+            <h4 class="presup">Extras</h4>
+            <div id="extras">
+                
+            
+<!--  Extras: Deberás utilizar varias etiquetas HTML que permitan que el usuario marque todas 
+las opciones extra que desea añadir al producto elegido. Cada opción seleccionada aumentará
+ el presupuesto final en un importe determinado. -->
+             
+                     <span class="errorMessageC errorMessage"></span>
+                <div>
+                    <label for="standard">Envío standard</label><input id="standard" type="checkbox" name="extras"  class="checkb" value=" envío estandard: 4">
+                </div>
+                <div>
+                    <label for="regalo">Envío para regalo</label><input id="regalo" type="checkbox" name="extras"  class="checkb"  value=" Envolver para regalo : 1">
+                </div>
+                <div>
+                    <label for="envioRapido">Envío rápido</label><input id="envioRapido"  type="checkbox" name="extras" class="checkb"  value="Envío rápido : 10 ">
+                </div>
+                <div>
+                    <label for="embalaje">Embalaje especial</label><input id="embalaje" type="checkbox" name="extras"  class="checkb" value="Embalaje especial : 3">
+                </div>
+                </div>
+
+            </div>
+
+
+        </section>
+        <section>
+            <h3 class="presup">Total producto</h3>
+         <!--  Presupuesto: Deberás utilizar las etiquetas HTML pertinentes para mostrar al usuario 
+el presupuesto final, basado en las elecciones que ha realizado. Este campo deberá actualizarse con cualquier cambio que se realice en las elecciones de producto, meses y extras, sin utilizar botones ni
+refrescar la página. -->
+            <div id="resumenProductos">
+
+            </div>
+            <div id="divTotal">
+                <p>Revisa los productos del carrito y el precio antes de enviar el presupuesto</p>
+                <p>No obstante, tras enviar el pedido te mandaremos un mail con un resumen y un acceso a la plataforma de pago. Sólo una vez que completes el proceso el pedido se pondrá en marcha</p>
+                <p id="totalFinal">Importe Total: </p>
+            </div>
+
+
+        </section>
+        <div id="aceptaYtotal">
+           <!--Condiciones y envío del presupuesto: En este apartado
+deberás utilizar una etiqueta HTML que te permita crear
+una opción para aceptar las condiciones de privacidad de
+la página y un botón que permita enviar el formulario. De
+forma adicional, podrás crear un botón que permita resetear el formulario. Recuerda que para poder enviar el
+formulario todos los campos deberán estar cumplimentados (incluido el de la aceptación de las condiciones) y deberán validar todos los datos del apartado de contacto.
+-->
+           
+            <div id="aceptaC">
+                <span id="errorCondiciones" class="errorMessage"></span>
+                <label for="condiciones">Acepta la política de privacidad</label> <input type="checkbox" name="condiciones" id="condiciones">
+            </div>
+            <div id="botones">
+                <input type="submit" value="enviar" id="botonEnviar"> <span class="errorEnvio errorMessage"></span>
+                <input type="reset" value="borrar" id="botonBorrar">
+            </div>
+        </div>
+    
+    </form>
+
+    </main>
+    <footer>
+        <section id="redes">
+            <h3>Síguenos</h3>
+            <div>
+            <a href="http://www.instagram.com/francxmente?igsh=MXRhZGE2eHAyYWVoMA=="><img src="../assets/images/logo-instagram.webp" alt="Instagram"></a>
+            <a href="https://www.facebook.com/yolanda.franco.52?locale=es_ES"><img src="../assets/images/facebook-logo.webp" alt="Facebook"></a>
+            <a href="http://www.etsy.com"><img src="../assets/images/logo-etsy.png" alt="Etsy"></a>
+            </div>
+        </section>
+        <section class="condicionesL">
+            <h3>Condiciones</h3>
+            <div>
+                <div class="legales">
+                <ul>
+                    <li><a href="./politicaPrivacidad.html">Politica de privacidad</a></li>
+                    <li><a href="./politicacookies.html"> Política de cookies</a></li>
+                    <li><a href="./avisoLegal.html">Aviso legal</a></li>
+                    <li><a href="#">Condiciones de compra</a></li>
+                </ul>
+
+                </div>
+            </div>
+        <!-- ul mapa, privacidad, cookies -->
+        </section>
+        <!-- Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el análisis de sus hábitos de navegación. Política de cookies -->
+    </footer>
+     
+    <script src="../js/presupFormul.js"></script>
+
+</body>
+</html>

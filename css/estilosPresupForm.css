@@ -1,0 +1,953 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body, html{
+    width: 100%
+}
+:root{
+    --header-footer-color:rgb(6, 93, 84);
+    --on: rgb(238, 151, 37);
+    --onLight: rgb(242, 192, 128);
+    --shadow: rgba(0,2,0, 0.4);
+    /* párrafo 425 a tamaño 12, margin y padding 5 */
+    --fuente_movil: 12px;
+    --espacio_movil: 5px;
+    --h2_movil: 1em;
+    --espacio_tablet:10px;
+    --fuente_tablet: 15px;
+    --fuente_a_tablet: 10px;
+    --fuente_a_movil:6px;
+    --h2_tablet: 1.08em;
+    --header-nav: 69px     
+}
+h2{font-size: 34px;}
+h3{font-size: 25px;}
+h4{font-size: 18px ;}
+.on{
+    color: var(--on);
+}
+/* Se usa plantilla grid para establecer la estructura fija en las páginas de cabecera-menu, cuerpo principal y footer  */
+body{
+    max-width: 100%;
+    display: grid;
+    grid-template-rows: var(--header-nav) 1fr 8% ;
+    grid-template-columns: 100%;    
+    grid-template-areas: 
+    "my-header"
+    "my-main"
+    "my-footer";
+    min-height: 100vh;
+}
+header, main, footer{
+    margin: 0;
+    padding: 0;
+}
+/* dentro del header pondremos el navegador: el menu de navegación va en horizontal en pantalla grande y vertical en pantalla tablet y móvil */
+header{
+    grid-area: my-header;
+    width: 100%;
+    height: 100%;
+    height: var(--header-nav);
+    color: white;
+    background-color: var(--header-footer-color);
+    border: 2px solid orange;
+}
+#logo{
+    width: 68px;
+    height: 68px;
+    display: flex;
+    margin-left: 5px;
+}
+header h1{
+        display: flex;
+        margin-left: 70px;
+        padding:0 7px;
+        font-size: 35px;
+        text-align:center;
+    }
+    .yfH1.yfColor{
+        color: var(--on);
+        text-shadow:1px 1px 2px black;  
+    }
+    #logo.logoColor{
+        clip-path: circle(48%);
+        background-color: var(--on);
+        /* background: var(--on .2); */
+    }
+    nav.sombra{
+        margin: 0;
+        background: var(--shadow);
+        backdrop-filter: blur(5px);
+    }
+    nav{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        position: fixed;
+        scroll-behavior: smooth;
+        align-items: center;
+        margin:0;
+        background-color: var(--header-footer-color);
+        box-sizing: border-box;
+        z-index: 1003;  
+        
+    }
+    .menuNav{
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        background-color: var(--header-footer-color);
+        border-radius: 15px;
+    
+    }
+    .menuNav li{
+        padding-right: 10px;    
+        font-size: 12px;
+        
+    }
+    header a{
+        text-decoration: none;
+        color: white;
+    }
+    /* fin menu nav */
+    main{
+        grid-area: my-main;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    #loveBotijos{
+        color:white;
+        position: absolute;
+        margin-top: 250px;
+        margin-left: 50px;
+        font-size: 35px;
+    }
+    #portadaPrincipal img{
+        width: 100%;
+    }
+    #imagnPortada{
+        width: 100%;
+        height: 700px;
+        margin-top: -250px;
+        overflow-y: hidden;
+    }
+    /* estilos footer común */
+    footer{
+        grid-area: my-footer;
+        background: var(--header-footer-color);
+        width: 100%;
+        height: fit-content;
+        justify-content: space-around;
+        bottom: 0;   
+    }
+    #redes{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 2px 2px 10px rgb(242, 192, 128, .5);
+        padding-bottom: 5px;
+    }
+    #redes img{
+        margin-top: 8px;
+        width: 40px;
+        height: 40px;
+    }
+    .condicionesL{
+        display: block;
+        margin: 0 auto;
+    }
+    .condicionesL h3{
+        display: none;
+    }
+
+    .legales ul{
+        display: flex;
+        justify-content: space-around;
+        color: white;
+        font-size: 12px;
+        padding: 10px 0px; 
+        list-style: none;
+
+        
+    }
+    .legales a {
+        text-decoration: none;
+        color: var(--on);
+    }
+    .legales a:hover{
+        color: var(--onLight) ;
+    }
+    .likeCeramica, .cuidarCeramica{
+        display: flex;
+        justify-content: space-around;
+        font-size: 14px;
+        margin: 5px 0px 30px 0px;
+
+    }
+    .likeCeramica div, .cuidarCeramica div{
+        margin-right: 3px;
+        text-align: center;
+        align-content: center;
+        border-radius: 4px;
+        height: 100px;
+        color: white;
+        padding: 6px;
+    }
+    .likeCeramica div{
+        background-color: var(--on);
+    }
+    .cuidarCeramica div{
+        background-color: var(--header-footer-color);
+
+    }
+    #ventajas h2{
+        margin: 15px 0;
+    }
+    /* estilos lightbox portada */
+    #galeriaInicio{
+        display: flex;
+        cursor: pointer;
+        width: 80%;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+    #galeriaInicio img{
+    width: 230px;
+    clip-path: circle(40%);
+    z-index: 0;
+    }
+    .gal1{
+        height: 210px;
+        transition: ease-in-out 0.5s;
+        box-sizing: border-box;
+        object-fit: cover;
+    }
+    .gal1:hover{
+        transform: scale(1.2);
+    }
+#lightbox{
+    display: none;
+    position: fixed;
+    background: rgba(0,0,0, 0.8);   
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0;
+    text-align: center;
+}
+
+#lightbox img{
+    max-width: 40%;
+    max-height: 70%;
+    z-index: 2;
+    margin-top: 95px
+}
+#lightbox span{
+    color: var(--on);
+}
+
+/* estilos noticias json */
+#contenedorNoticias{
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    border: 2px solid var(--on);
+    padding: 10px;
+}
+#contenedorNoticias p{
+    text-align: justify;
+    margin: 10px 0;
+}
+#contenedorNoticias div{
+    flex:50%;
+    border: 2px solid var(--shadow);
+    padding: 10px;
+}
+/* ESTILOS PRODUCTOS GALERIAS */
+
+.galeriaPrincipal h3{
+    text-align: center;
+    text-decoration: underline;
+}
+#galeria1, #galeriaDecorativa, #galeriaVajilla{        
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+    border: 1px solid var(--on);
+    padding: 10px 0px;
+    background-color: var(--onLight);
+    border-radius: 5px;
+}
+.galeriaBotijos, .galeriaDeco, .galeriaVaji{
+    flex: 33%;
+    flex-wrap: wrap;
+    max-width: 320px;
+    max-height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 2px;
+    border-radius: 5px;
+}
+.galeriaBotijos:hover, .galeriaDeco:hover, .galeriaVaji:hover{
+    transform: scale(1.1);
+    filter: brightness(1.12);
+}
+#lightbox1, #lightbox2, #lightbox3{
+    background-color: rgba(0,0,0, 0.8);
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+}
+.lightbox-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#lightbox1 img, #lightbox2 img, #lightbox3 img{
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+    z-index: 2;
+    margin-top: 100px
+}
+.flechas{
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--header-footer-color);
+    z-index: 1000;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.cierre{
+        top: 10%;
+        left:80%;
+        cursor: pointer;
+    }
+    .close{
+        font-size: 30px;
+        color: var(--on);
+        z-index: 1000;
+        margin: 0 auto;
+        align-content: center;   
+
+    }
+    .right, .left{
+        margin-top: 50px;
+        cursor: pointer;
+    }
+    .righty, .lefty{
+        margin: 0 auto;
+        color: var(--on);
+        font-size: 30px;
+        align-self: center;
+    }
+
+    .right{
+        margin-left: 90%
+    }
+    .left{
+        margin-left: 2%;
+    }
+    #comment1, #comment2, #comment3{
+        color: var(--on);
+        font-size: 25px;
+        display: block;
+        text-align: center;
+        position: relative;
+    }
+
+
+    /* ESTILOS FORMULARIO */
+    #mainPresupuesto, #mainContacto, #mainProductos, .noPortada{
+        width: 90%;
+        margin: 0 auto;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+    form p{
+        padding: 15px;
+    }
+    .presup{
+        padding: 15px;
+        text-align: center;
+    }
+        
+    /* datos personales */
+#inputPersonales{
+    display: flex;
+    border: 1px solid lightgrey;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    }
+#inputPersonales div{
+    flex:50%;
+    display: flex
+    }
+#inputPersonales label{
+    width: 200px;
+    border:1px solid rgb(239, 238, 238)
+    }
+#datosPersonales input{
+    background: var(--onLight);
+    width: 65%;
+    height: 20px;
+    border-radius: 10px;
+    padding: 10px;
+        }
+    /* productos */
+#productDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+        }
+.prods{
+    flex: 33%;
+}
+.prods img{
+    margin: 0 auto;
+}
+    #pr2, #pr3, #pr1, #pr4, #pr5, #pr6, #pr7{
+        display: flex;
+        flex-direction: column;
+    }
+    .prods{
+        border: 2px solid var(--header-footer-color);
+    }
+    .prods img{
+        width: 100px;
+        height: 100px;
+    }
+    .articuloCarrito{
+        font-size: 15px;
+        color: var(--header-footer-color);
+        font-weight: 700;
+    }
+    /* plazo */
+    #plazo{
+        border: 2px solid var(--header-footer-color);
+        width:95%;
+        margin: 0 auto;
+        justify-items: center;
+    }
+    #plazo>input{
+        width: 60px;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        margin-bottom: 25px;
+        text-align: center;
+
+    }
+        
+    #plazo>label{
+        margin-left: 33%;
+        font-weight: 500;
+    }
+    /* extras */
+
+    #extras{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        border: 1px solid grey;
+    }
+    #extras span{
+        display: none;
+    }
+
+    /* estilos validación */
+.errorMessageOn{
+    color: var(--on);
+    display: block;
+        }
+.completado{
+    color: green !important;
+}
+.errorMessage{
+    width:100%;
+    margin: 0 auto;
+}
+    
+    /* casilla suma Importe Total */
+#totalFinal{
+    font-weight: 800;
+    border: 1px solid var(--shadow);
+    border-radius: 4px;
+}
+    /* condiciones */
+#aceptaC{
+    text-align: center;
+    margin:20px 0;
+    width: 100%;
+    color: var(--header-footer-color);
+    font-weight: 400;
+    }
+#aceptaC label{
+    margin-right: 10px;
+    }
+#errorCondiciones, .errorMessageC{
+    color: var(--on);
+    width: 50%
+}
+
+    /* botones enviar/ borrar */
+    #botonEnviar, #botonBorrar{
+        width: 100px;
+        height: 30px;
+        background-color: var(--header-footer-color);
+        color: white;
+        border-radius: 4px;
+        margin: 30px 0px;
+    }
+    #botonEnviar:hover, #botonBorrar:hover{
+        border: 2px solid rgb(5, 90, 81);
+        background-color: rgb(20, 125, 114);
+        cursor: pointer;
+    }
+    #botones{
+        text-align: center;
+    }
+
+    /* ESTILOS CONTACTO */
+    #dondeEstamosDiv{
+        display:flex;
+        /* flex-wrap: wrap; */
+        width: 100%;
+        min-width: 0;
+    }
+.popUpMark{
+    font-size: 8px;
+    color: var(--header-footer-color);
+    text-align: center;
+}
+    #direccion{
+        flex: 4;
+        width: 90%;
+        min-width: 0%;  
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+
+    }
+    #container{
+        display: flex;
+        flex: 6;
+        width: 500px;
+        height: 450px;
+
+    }
+    #mapa{
+        width: 76%;
+        height: 100%;
+        display: block;
+        margin: 10px 5px 0 0;
+    }
+    #panel{
+        width: 24%;
+        height: 100%;
+        font-size: 9px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        margin-right: 3px;
+
+    }
+   
+
+    #direccion div{
+        margin-bottom: 25px;
+    }
+    /* cookies, aviso legal */
+    #contenidoCookies, #contenidoAviso, #contenidoPrivacidad, #contenidoCventas{
+        text-align: justify;
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    .cookies,.aviso, .pPrivacidad, .condicionesVenta, .cookies h4{
+        text-align: center;
+        padding: 15px 0px;
+    }
+    #contenidoCookies li, #contenidoPrivacidad li, #contenidoAviso li, #contenidoCventas li{
+        margin-left: 20px;
+    }
+    /* -------------------PANTALLAS----------------------- */
+
+    /* responsive tablet */
+    @media(max-width: 768px){
+        
+        body{
+            display: grid;
+             grid-template-rows: 1fr 20% ;
+            grid-template-columns: 20% 80%;
+            grid-template-areas: 
+            "my-header my-main"
+            "my-header my-main"
+            "my-header my-footer";
+            min-height: 100vh;
+        }   
+        header{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        nav{
+            display: block;
+            width: fit-content;
+            z-index: 0;
+        }
+        #logo{
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin-left: 5px;
+            margin-top: 40px;
+            bottom: 380px;
+        }
+        header h1{
+            display: block;
+            text-align: start;
+            margin-left: 5px;
+        }
+        .menuNav{
+            display: block;
+            position: fixed;
+            width: 10%;
+            border-radius: 14px;
+            padding: 7px;
+            margin-top: 3px;
+            max-height: fit-content;
+            
+        }
+        .menuNav li{
+            font-size: var(--fuente_a_tablet);
+            padding-bottom: 5px;
+        }
+        #imagnPortada{
+            width: 100%;
+            height: fit-content;
+            margin-top:0px;
+            overflow-y:visible;
+        }   
+        #loveBotijos{
+            color:white;
+            position: absolute;
+            margin-top: 60px;
+            margin-left: 50px;
+            font-size: 35px;
+        }
+        footer ul{
+            font-size: 7px;
+        }
+          .legales a{
+        font-size: var(--fuente_a_tablet);
+    }
+    
+        /* noticias json en tablet */
+        #contenedorNoticias{
+            display: flex;
+            flex-wrap: wrap;
+            border: 2px solid var(--on);
+            padding: 10px;  
+            height: min-content;
+        }
+        #contenedorNoticias p{
+            text-align: justify;
+            margin: 10px 0;
+        }
+        #contenedorNoticias div{
+            flex:100%;
+            padding: 5px;
+            font-size: 10px;
+        }
+        /* textos tablet */
+        #portadaPrincipal div p, #ventajas p, #cuidados p{
+            font-size: var(--fuente_tablet);
+            text-align: justify;
+            padding: var(--espacio_tablet);
+            margin: var(--espacio_tablet)
+        }
+        #ventajas h2, #cuidados h2, #noticiasJson h2{
+            text-align: center;
+            font-size: var(--h2_tablet);
+        }
+        #portadaPrincipal h2{
+            text-align: center;
+        }
+        /* estilos lightbox tablet  */
+        #galeriaInicio{
+            display: block;
+            max-width: 65%;
+            margin: 0 auto;
+        }
+        #galeriaInicio img{
+            width: 310px
+        }
+        .gal1{
+            width: 5%;
+            height: 5%;
+            transition: ease-in-out 0.5s;
+            margin: 10px 0;
+        }
+        #lightbox img{
+            max-width: 80%;
+            max-height: 80%;
+            z-index: 2;
+            margin-top: 60px;
+            text-align: center;
+        }
+        /* estilos galeria productos tablet */
+        #galeria1, #galeriaDecorativa, #galeriaVajilla{
+            flex-direction: column;
+            justify-content: center;
+        }
+    
+        .galeriaBotijos, .galeriaDeco, .galeriaVaji{
+        flex: 1;
+        width: 320px;
+        height: 300px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+        #lightbox1 img, #lightbox2 img, #lightbox3 img{
+        width: 60%;
+        height: 60%;
+        object-fit: cover;
+        z-index: 2000;
+        }
+    
+    .flechas{
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--header-footer-color);
+        z-index: 1000;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-300%);
+    }
+    .cierre{
+        top: 30%;
+    }
+    .close{
+        font-size: 30px;
+    }
+
+    #comment1, #comment2, #comment3{
+        font-size: 15px;
+        padding-top: 10px;
+    }
+        
+        /* estilos formulario tablet */
+    #datosPersonales>div{
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+            border: 1px solid var(--header-footer-color);
+        }
+        #datosPersonales>div div{
+            width: 100%;
+        }
+        #h2Dp{
+        text-align: center;}
+            
+        #formulario, #selectorProducto{
+            font-size: 12px;
+        }
+        #extras label{
+            margin-right:3px;
+            font-size: 10px;
+
+        }
+        input[name="extras"]{
+            width:25%;
+            height: 25%;
+            display:block
+        }
+        /* estilos contacto */
+        #dondeEstamos{
+            font-size: 12px;
+        }
+        #dondeEstamosDiv{
+        display:flex;
+        flex-direction: column;
+        }
+       #mapa{
+        width: 450px;
+        height: 450px;
+        display: block;
+    }
+        #dondeEstamosDiv p{
+            font-size: 12px;
+        }
+        #direccion{
+            margin: 20px 0;
+        }
+        #direccion p{
+            padding: 5px;
+        }
+    
+        
+    }
+    /* estilos movil responsive */
+    @media(max-width: 425px){
+        body{
+            display: grid;
+            grid-template-rows: 1fr 20% ;
+            grid-template-columns: 20% 80%;
+            grid-template-areas: 
+            "my-header my-main"
+            "my-header my-main"
+            "my-header my-footer";
+            min-height: 100vh;
+        }   
+        header{
+            grid-area: my-header;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .menuNav{
+            justify-content: center;
+            padding: 4px 19px 4px 5px;
+
+        }
+        .menuNav li{
+            font-size: var(--fuente_a_movil);
+            padding-bottom: 10px;
+        }
+        .menuNav a{
+            font-size: 7px;
+        }
+        #loveBotijos{
+            color:white;
+            position: absolute;
+            margin-top: 25px;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+    #galeriaInicio img{
+        width: 20%;
+        height: 60Px;
+        flex-wrap: wrap;
+        object-fit: fill;
+    }
+    #galeriaInicio{
+        display: flex;
+        min-width: 80%;
+        box-sizing: border-box;
+        justify-content: center;
+        }
+
+    #portadaPrincipal div p, #ventajas p, #cuidados p{
+        font-size: var(--fuente_movil);
+        text-align: justify;
+        padding: var(--espacio_movil);
+        margin: var(--espacio_movil)
+    }
+    #ventajas h2, #cuidados h2, #noticiasJson h2{
+        text-align: center;
+        font-size: var(--h2_movil);
+    }
+
+    #portadaPrincipal h2{
+        text-align: center;
+    }
+      .likeCeramica, .cuidarCeramica{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        font-size: var(--fuente_movil);
+        margin: 5px 0px;
+    }
+    .likeCeramica div, .cuidarCeramica div{
+        flex: 33%;
+        margin: 3px;
+    }
+    /* galeria productos */
+        .galeriaBotijos, .galeriaDeco, .galeriaVaji{
+        flex: 1;
+        flex-wrap: wrap;
+        width: 220px;
+        height: 200px;
+        object-fit: cover;
+        margin: 0 auto;
+    
+    }
+    /* legales */
+    .legales a{
+        font-size: var(--fuente_a_movil);
+    }
+    
+    /* formulario */
+    #formulario, #selectorProducto{
+        font-size: 8px;
+    }
+    input[type="number"]{
+        font-size: 10px
+    }
+    input[name="extras"]{
+        width:30%;
+        height: 30%
+    }
+    /* estilos contacto */
+    #dondeEstamos{
+        font-size: 10px;
+        text-align: justify;
+    }
+    #dondeEstamosDiv{
+        display:flex;
+        flex-direction: column;
+    }
+    #container{
+        flex-direction: column;
+    }
+    #mapa{
+        width: 220px;
+        height: 300px;
+    }
+    #panel{
+        width: 220px;
+    }
+      
+    #dondeEstamosDiv p{
+        font-size: 10px;
+        }
+        #direccion{
+            margin: 20px 0;
+        }
+        #direccion p{
+            padding: 5px;
+        }
+            
+    }
+
