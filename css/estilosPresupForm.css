@@ -106,12 +106,16 @@ header h1{
         border-radius: 15px;
     
     }
-    .menuNav li{
+.menuNav li{
         padding-right: 10px;    
-        font-size: 12px;
-        
+        font-size: 12px;    
     }
-    header a{
+.sobreMail{
+    width: 6px;
+    height: 6px;
+    color: white;
+}
+header a{
         text-decoration: none;
         color: white;
     }
