@@ -806,10 +806,17 @@ form p{
         display:flex;
         flex-direction: column;
     }
+    #container{
+        flex-direction: column;
+
+    }
     #mapa{
         width: 450px;
         height: 450px;
         display: block;
+    }
+    #panel{
+        width: auto;
     }
     #dondeEstamosDiv p{
         font-size: 12px;
