@@ -808,6 +808,7 @@ form p{
     }
     #container{
         flex-direction: column;
+        width: fit-content;
 
     }
     #mapa{
