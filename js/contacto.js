@@ -1,3 +1,37 @@
+ //menu deslizante con cambio de color al llegar a cierto número de px en el scroll
+    (function(){const nombreMenu= document.querySelector(".yfH1");
+    const logo = document.getElementById("logo");
+    const nav = document.querySelector("nav");
+    const isRespons = window.matchMedia("(min-width: 769px)")
+    function scrollMenu(){
+    if(window.scrollY>10){
+        nombreMenu.classList.add("yfColor");
+        logo.classList.add("logoColor");
+        nav.classList.add("sombra")
+
+    }else{
+        nombreMenu.classList.remove("yfColor");
+        logo.classList.remove("logoColor");
+        nav.classList.remove("sombra")
+
+    }}
+    function manejarResponsive(e){
+        if(e.matches){
+            window.addEventListener('scroll', scrollMenu)
+        } else{
+            window.removeEventListener('scroll', scrollMenu)
+            nombreMenu.classList.remove("yfColor");
+            logo.classList.remove("logoColor");
+            nav.classList.remove("sombra")
+        }
+    }
+      manejarResponsive(isRespons);
+
+    isRespons.addEventListener('change', manejarResponsive)
+})()
+
+
+
 function initMap(){
     const cajaMapa = document.getElementById("mapa");
     const map= new google.maps.Map( cajaMapa, {
@@ -23,8 +57,8 @@ function initMap(){
         })
         // el evento cuando cliquemos en el mapa  para terminar de crear la ruta y mostrarla
     map.addListener('click', (e)=>{
-        origenRutaUs = e.latLng;
-            // llamada a la función y los parametros que se le van a pasar
+        origenRutaUs = e.latLng; //ubicación de donde se pincha
+            
 
         displayRoute(origenRutaUs, yfLoc, directionsService, directionsRenderer);// llamada a la función y los parametros que se le van a pasar una vez que se ha hecho click en el mapa
 
@@ -39,9 +73,6 @@ function initMap(){
         let final= directionsRyf.routes[0].legs.length-1
         const localizacionFinal = directionsRyf.routes[0].legs[final].end_location;
 
-        
-
-        
       
     })
     const bounds = new google.maps.LatLngBounds();
@@ -75,4 +106,4 @@ function displayRoute(origin, destination, service, display){
 window.initMap= initMap
 
 
-
+   
