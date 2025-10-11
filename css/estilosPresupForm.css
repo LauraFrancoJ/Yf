@@ -8,6 +8,10 @@
 body, html{
     width: 100%
 }
+p{
+    margin-bottom: 12px;
+    margin-top: 5px;
+}
 :root{
     --header-footer-color:rgb(6, 93, 84);
     --on: rgb(238, 151, 37);
@@ -585,12 +589,19 @@ form p{
     display: flex;
     flex-direction: column;
 }
+#contenidoCookies p, #contenidoAviso p, #contenidoPrivacidad p, #contenidoCventas p{
+    margin-bottom: 15px;
+}
 .cookies,.aviso, .pPrivacidad, .condicionesVenta, .cookies h4{
     text-align: center;
     padding: 15px 0px;
 }
 #contenidoCookies li, #contenidoPrivacidad li, #contenidoAviso li, #contenidoCventas li{
-    margin-left: 20px;
+    margin-left: 60px;
+}
+
+.tipo2{
+    margin-left: 120px;
 }
 /* -------------------PANTALLAS----------------------- */
 
